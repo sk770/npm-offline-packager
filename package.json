@@ -1,0 +1,58 @@
+{
+  "name": "npm-offline-packager",
+  "version": "1.0.0",
+  "description": "Fetch and publish npm packages for private npm registry",
+  "main": "index.js",
+  "scripts": {
+    "start": "node cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sk770/npm-offline-packager.git"
+  },
+  "keywords": [
+    "npm",
+    "offline",
+    "registry",
+    "packages",
+    "tarball",
+    "modules",
+    "verdaccio",
+    "artifactory"
+  ],
+  "author": "sh770",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sk770/npm-offline-packager/issues"
+  },
+  "homepage": "https://github.com/sk770/npm-offline-packager#readme",
+  "bin": {
+    "npo": "./cli.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "chalk": "^2.4.1",
+    "commander": "^2.17.1",
+    "gauge": "^2.7.4",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "nedb": "^1.8.0",
+    "npm-conf": "^1.1.3",
+    "pacote": "^9.1.0",
+    "rimraf": "^2.6.2",
+    "semver": "^5.5.1",
+    "shelljs": "^0.8.2",
+    "tar": "^4.4.6"
+  },
+  "devDependencies": {
+    "@types/node": "^10.7.1",
+    "@types/shelljs": "^0.8.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  },
+  "engines": {
+    "node": ">=7.8.0"
+  }
+}
