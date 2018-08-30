@@ -65,10 +65,6 @@ $  npo publish <path to tarball file or folder>
     -h, --help                     output usage information
 ```
 
-## Authors
-
-* [sk770](https://github.com/sk770)
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
