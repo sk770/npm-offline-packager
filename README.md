@@ -63,6 +63,7 @@ $  npo publish <path to tarball file or folder>
     -f, --force                    Whether to publish with --force flag
     -c, --concurrent <concurrent>  How many packages to publish concurrently (default: 20)
     -h, --help                     output usage information
+    --del-package                  After successful publication package deleting the package file (.tgz) 
 ```
 
 ## License

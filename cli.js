@@ -191,6 +191,7 @@ commander
     .option('-s, --skip-login', 'Whether to skip npm login command', false)
     .option('-f, --force', 'Whether to publish with --force flag', false)
     .option('-c, --concurrent <concurrent>', 'How many packages to publish concurrently', parseInt, 20)
+    .option('--del-package', 'After successful publication package deleting the package file (.tgz)', false)
     .description('Publish packages tarball to private npm registry')
     .action(async (path, command) => {
         try {
@@ -214,14 +215,22 @@ commander
                     const folderPath = path.replace('.tar', '');
                     await extract({ file: path, cwd: dirname(path) });
                     shell.cd(folderPath);
-                    await publishFolder('.', { force: command.force, concurrent: command.concurrent });
-                    await rimrafPromise(folderPath);
+                    await publishFolder('.', { force: command.force, concurrent: command.concurrent, delPackage: command.delPackage });
+
+                    if (command.delPackage) {
+                        const files = readdirSync(folderPath);
+                        if (!files.length) {
+                            shell.cd(`${folderPath}\\..`);
+                            await rimrafPromise(folderPath);
+                        }
+                    }
+
                 } else {
-                    await publishTarball(path, { force: command.force });
+                    await publishTarball(path, { force: command.force, delPackage: command.delPackage });
                 }
             } else {
                 shell.cd(path);
-                await publishFolder('.', { force: command.force, concurrent: command.concurrent });
+                await publishFolder('.', { force: command.force, concurrent: command.concurrent, delPackage: command.delPackage });
             }
         } catch (error) {
             console.log(error && error.message ? red(error.message) : error);
