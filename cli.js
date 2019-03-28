@@ -122,7 +122,6 @@ commander
             // Clean packages in memory cache
             resolvedPackages.clean();
 
-
             // Resolve dependencies tree
             logger('Resolving dependencies...');
             const dependencies = await resolveDependencies(packagesObj, {
@@ -164,7 +163,10 @@ commander
             if (command.tar) {
                 // Create new tarball
                 await create({ file: `${destFolder}.tar` }, [destFolder]);
-                await rimrafPromise(destFolder);
+
+                if (!command.dest) {
+                    await rimrafPromise(destFolder);
+                }
             }
 
             const endTime = moment();
@@ -224,7 +226,6 @@ commander
                             await rimrafPromise(folderPath);
                         }
                     }
-
                 } else {
                     await publishTarball(path, { force: command.force, delPackage: command.delPackage });
                 }
