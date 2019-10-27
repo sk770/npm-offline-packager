@@ -1,7 +1,7 @@
 # npm-offline-packager
 
 A CLI tool to download and publish NPM packages tarboll (with all dependencies) <br>
-for offline npm registry ([verdaccio](https://github.com/verdaccio/verdaccio), artifactory, etc.) 
+for offline npm registry ([verdaccio](https://github.com/verdaccio/verdaccio), [artifactory](https://jfrog.com/artifactory/), etc.) 
 
 ## Install
 
@@ -39,14 +39,14 @@ To fetch a list of packages
  $ npo fetch express @types/express bluebird
 ```
 
-To fetch top 1000 packages from npm registry api
-```bash
- $ npo fetch --top 1000
-```
-
 To fetch dependencies from package.json file
 ```bash
- $ npo fetch ./package.json
+ $ npo fetch -p ./package.json
+```
+
+To fetch top n packages from npm registry api
+```bash
+ $ npo fetch --top n
 ```
 
 ### npo publish - Publish packages tarball to private npm registry

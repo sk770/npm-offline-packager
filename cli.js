@@ -70,6 +70,10 @@ commander
                 // Read and parse package.json file
                 const file = readFileSync(packageJsonPath, 'utf-8');
                 packagesObj = JSON.parse(file);
+
+                if (!packagesObj || !packagesObj.dependencies) {
+                    throw new Error('The package.json not contains dependencies list');
+                }
             } else if (packages.length) {
                 packagesObj = {
                     dependencies: packages.reduce((dependencies, currPackage) => {
