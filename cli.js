@@ -42,6 +42,7 @@ commander
     .option('--dev', 'Whether to resolved dev dependencies')
     .option('--peer', 'Whether to resolved peer dependencies')
     .option('--optional', 'Whether to resolved optional dependencies')
+    .option('-r, --registry <registry>', 'The registry url', 'https://registry.npmjs.org/')
     .action(async (packages, command) => {
         try {
             const startTime = moment();
@@ -132,6 +133,7 @@ commander
                 dev: command.dev,
                 peer: command.peer,
                 optional: command.optional,
+                registry: command.registry,
                 logger,
             });
 
@@ -144,6 +146,7 @@ commander
                 useCache: command.cache,
                 logger,
                 destFolder,
+                registry: command.registry,
             });
 
             const completedPackages = result.filter(inspection => inspection.isFulfilled());

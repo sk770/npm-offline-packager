@@ -29,6 +29,7 @@ $ npm install -g npm-offline-packager
     --dev                             Whether to resolved dev dependencies
     --peer                            Whether to resolved peer dependencies
     --optional                        Whether to resolved optional dependencies
+    -r, --registry <registry>         The registry url,Defaults to https://registry.npmjs.org/
     -h, --help                        output usage information
 ```
 
