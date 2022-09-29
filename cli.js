@@ -39,6 +39,9 @@ commander
     .option('-d, --dest <dest>', 'Packages destination folder')
     .option('--no-tar', 'Whether to create tar file from all packages')
     .option('--no-cache', 'Whether to save download packages in cache')
+    .option('--no-dev-recursive', 'Whether to recursively resolve dev dependencies')
+    .option('--no-peer-recursive', 'Whether to recursively resolve peer dependencies')
+    .option('--no-optional-recursive', 'Whether to recursively resolve optional dependencies')
     .option('--dev', 'Whether to resolved dev dependencies')
     .option('--peer', 'Whether to resolved peer dependencies')
     .option('--optional', 'Whether to resolved optional dependencies')
@@ -133,6 +136,9 @@ commander
                 dev: command.dev,
                 peer: command.peer,
                 optional: command.optional,
+                devRecursive: command.devRecursive,
+                peerRecursive: command.peerRecursive,
+                optionalRecursive: command.optionalRecursive,
                 registry: command.registry,
                 logger,
             });
